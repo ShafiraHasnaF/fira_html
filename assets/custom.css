@@ -98,7 +98,7 @@ source : https://www.youtube.com/redirect?event=comments&redir_token=QUFFLUhqbHB
 
 .front .page-front,
 .back .page-front {
-  background: #fa9f2b !important;
+  background: #991825 !important;
 }
 
 .page1 .page-front,
@@ -403,7 +403,8 @@ source : https://www.youtube.com/redirect?event=comments&redir_token=QUFFLUhqbHB
 }
 
 .page-content.white-page {
-  background: white;
+  background: #fffff9;
+  border: 2px solid #ede8cc;
   color: #333;
 }
 
