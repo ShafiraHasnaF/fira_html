@@ -13,6 +13,10 @@
     <link rel="stylesheet" href="./assets/icons/remixicons/remixicon.css"> <!-- remix icons -->
     <link rel="stylesheet" type="text/css" href="./assets/custom.css"> <!-- custom styles -->
 
+    <!-- bootstrap 5.2 -->
+    <link rel="stylesheet" type="text/css" href="./assets/bootstrap/css/bootstrap.min.css">
+    <link rel="stylesheet" type="text/css" href="./assets/bootstrap/css/bootstrap.css">
+
     <!-- google fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -27,8 +31,8 @@
         <div class="book" id="book">
             <div class="book-spine"></div>
             <div class="page front">
-                <div class="page-content page-front" style="border: 2px solid #540b1b;">
-                    <h1 class="title">Fira Book</h1>
+                <div class="page-content page-front" style="border: 2px solid #540b1b; background-image: url('./assets/img/cover_f.png'); background-size: cover; background-position: center;">
+                    <h1 class="title"></h1>
                     <p class="page-text" style="color: white;">Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
                 </div>
                 <div class="page-content page-back">
@@ -93,6 +97,13 @@
                     </p>
                 </div>
             </div>
+            <div class="page page6">
+                <div class="page-content page-front white-page">
+                    <p class="page-text">ill put random artwork here later</p>
+                </div>
+                <div class="page-content page-back white-page">
+                </div>
+            </div>
 
             <div class="page back">
                 <div class="page-content page-front" style="border: 2px solid #540b1b;">
@@ -106,6 +117,8 @@
             <button class="control-btn" id="nextBtn">></button>
         </div>
     </div>
+
+    <!-- <button class="btn btn-primary">primary test</button> -->
 
     <script src="./assets/script.js"></script>
 </body>

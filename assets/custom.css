@@ -10,7 +10,7 @@
 }
 
 body {
-  font-family: "Sour Gummy", sans-serif;
+  font-family: "Sour Gummy", sans-serif !important;
   font-optical-sizing: auto;
   /* font-weight: 400; */
   font-style: normal;
@@ -60,7 +60,7 @@ source : https://www.youtube.com/redirect?event=comments&redir_token=QUFFLUhqbHB
   transform-style: preserve-3d;
   position: relative;
   width: 220px;
-  height: 320px;
+  height: 300px;
   transition: transform 0.5s ease;
 }
 
@@ -98,7 +98,7 @@ source : https://www.youtube.com/redirect?event=comments&redir_token=QUFFLUhqbHB
 
 .front .page-front,
 .back .page-front {
-  background: #991825 !important;
+  background: #991825;
 }
 
 .page1 .page-front,
@@ -110,7 +110,9 @@ source : https://www.youtube.com/redirect?event=comments&redir_token=QUFFLUhqbHB
 .page4 .page-front,
 .page4 .page-back,
 .page5 .page-front,
-.page5 .page-back {
+.page5 .page-back, 
+.page6 .page-front,
+.page6 .page-back {
   background: white;
 }
 
@@ -125,37 +127,42 @@ source : https://www.youtube.com/redirect?event=comments&redir_token=QUFFLUhqbHB
 }
 
 .front {
-  z-index: 12;
+  z-index: 14;
   box-shadow: -5px 5px 15px rgba(0, 0, 0, 0.2);
 }
 
 .page1 {
-  z-index: 11;
+  z-index: 13; 
   box-shadow: -5px 5px 15px rgba(0, 0, 0, 0.15);
 }
 
 .page2 {
-  z-index: 10;
+  z-index: 12; 
   box-shadow: -5px 5px 15px rgba(0, 0, 0, 0.15);
 }
 
 .page3 {
-  z-index: 9;
+  z-index: 11;
   box-shadow: -5px 5px 15px rgba(0, 0, 0, 0.15);
 }
 
 .page4 {
-  z-index: 8;
+  z-index: 10; 
   box-shadow: -5px 5px 15px rgba(0, 0, 0, 0.15);
 }
 
 .page5 {
-  z-index: 7;
+  z-index: 9; 
+  box-shadow: -5px 5px 15px rgba(0, 0, 0, 0.15);
+}
+
+.page6 {
+  z-index: 8; 
   box-shadow: -5px 5px 15px rgba(0, 0, 0, 0.15);
 }
 
 .back {
-  z-index: 6;
+  z-index: 7;
   box-shadow: -5px 5px 15px rgba(0, 0, 0, 0.2);
 }
 
@@ -247,7 +254,7 @@ source : https://www.youtube.com/redirect?event=comments&redir_token=QUFFLUhqbHB
   transform: rotateY(-30deg);
 }
 
-.book.page4-open .back {
+.book.page4-open .page6 {
   transform: rotateY(-25deg);
 }
 
@@ -275,7 +282,43 @@ source : https://www.youtube.com/redirect?event=comments&redir_token=QUFFLUhqbHB
   transform: rotateY(-150deg);
 }
 
+.book.page5-open .page6 {
+  transform: rotateY(-30deg);
+}
+
 .book.page5-open .back {
+  transform: rotateY(-25deg);
+}
+
+.book.page6-open .front {
+  transform: rotateY(-160deg);
+}
+
+.book.page6-open .page1 {
+  transform: rotateY(-160deg);
+}
+
+.book.page6-open .page2 {
+  transform: rotateY(-160deg);
+}
+
+.book.page6-open .page3 {
+  transform: rotateY(-160deg);
+}
+
+.book.page6-open .page4 {
+  transform: rotateY(-160deg);
+}
+
+.book.page6-open .page5 {
+  transform: rotateY(-160deg);
+}
+
+.book.page6-open .page6 {
+  transform: rotateY(-150deg);
+}
+
+.book.page6-open .back {
   transform: rotateY(-30deg);
 }
 

@@ -18,6 +18,7 @@ function updateBook() {
     else if (currentPage === 3) book.classList.add('page3-open');
     else if (currentPage === 4) book.classList.add('page4-open');
     else if (currentPage === 5) book.classList.add('page5-open');
+    else if (currentPage === 6) book.classList.add('page6-open');
 
     // const pageNames = ['Cover', 'About Me', 'Skills', 'Portfolio', 'Experience', 'Contact & Fun Facts', 'The End'];
     // pageCounter.textContent = pageNames[currentPage];
