@@ -6,7 +6,7 @@ const nextBtn = document.getElementById('nextBtn');
 // const pageCounter = document.getElementById('pageCounter');
 // const navStatus = document.getElementById('navStatus');
 
-let currentPage = 0;
+let currentPage = 1;
 const totalPages = 6;
 
 function updateBook() {

@@ -43,6 +43,20 @@ body {
   mask-image: radial-gradient(ellipse 60% 60% at 50% 50%, #000 30%, transparent 70%);
 }
 
+/* pose */
+.poses {
+  top: -3%;
+  position: absolute;
+  text-align: center;
+}
+
+.character-img {
+  width: 100%;
+  max-width: 550px;
+  height: auto;
+}
+
+
 /* book animation */
 /* reference : https://youtu.be/6TBpfjxdcDg?si=mFkqtlP7fLzTPuoO
 source : https://www.youtube.com/redirect?event=comments&redir_token=QUFFLUhqbHBVY1JmTkU0ZEw2eTRNWVEza3FSMFQwaDM2Z3xBQ3Jtc0ttQ01tTDFkV2JUMzJXeGRJNWFCaDd1eHBTeDhsanF0cXozQVpjRXpaZG42NjQ0SlpHcTNiV1pUWERzNGhSNUg2aXdPRm5Xa25Cb1VvbExXSjV3TzVuLVJjWFBGNW9lSDAxNjRDR3dwbGRfZkFJX1RQaw&q=https%3A%2F%2Fgithub.com%2Fjolanjose%2FSignphic%2Ftree%2Fmain%2FVirtual%2520Book%2520Css%2520Jolan */
@@ -54,6 +68,11 @@ source : https://www.youtube.com/redirect?event=comments&redir_token=QUFFLUhqbHB
   display: flex;
   justify-content: center;
   align-items: center;
+}
+
+.book-wrapper {
+  transform: scale(0.85);
+  transform-origin: center;
 }
 
 .book {
@@ -110,7 +129,7 @@ source : https://www.youtube.com/redirect?event=comments&redir_token=QUFFLUhqbHB
 .page4 .page-front,
 .page4 .page-back,
 .page5 .page-front,
-.page5 .page-back, 
+.page5 .page-back,
 .page6 .page-front,
 .page6 .page-back {
   background: white;
@@ -132,12 +151,12 @@ source : https://www.youtube.com/redirect?event=comments&redir_token=QUFFLUhqbHB
 }
 
 .page1 {
-  z-index: 13; 
+  z-index: 13;
   box-shadow: -5px 5px 15px rgba(0, 0, 0, 0.15);
 }
 
 .page2 {
-  z-index: 12; 
+  z-index: 12;
   box-shadow: -5px 5px 15px rgba(0, 0, 0, 0.15);
 }
 
@@ -147,17 +166,17 @@ source : https://www.youtube.com/redirect?event=comments&redir_token=QUFFLUhqbHB
 }
 
 .page4 {
-  z-index: 10; 
+  z-index: 10;
   box-shadow: -5px 5px 15px rgba(0, 0, 0, 0.15);
 }
 
 .page5 {
-  z-index: 9; 
+  z-index: 9;
   box-shadow: -5px 5px 15px rgba(0, 0, 0, 0.15);
 }
 
 .page6 {
-  z-index: 8; 
+  z-index: 8;
   box-shadow: -5px 5px 15px rgba(0, 0, 0, 0.15);
 }
 
@@ -367,12 +386,13 @@ source : https://www.youtube.com/redirect?event=comments&redir_token=QUFFLUhqbHB
 
 .controls {
   position: absolute;
-  bottom: 30px;
+  bottom: 50%;
   display: flex;
-  gap: 20px;
+  gap: 320pt;
+  left: 43.5%;
 }
 
-/* From Uiverse.io by elijahgummer */ 
+/* From Uiverse.io by elijahgummer */
 /* https://uiverse.io/elijahgummer/sweet-rabbit-5 */
 .control-btn {
   font: inherit;
@@ -390,6 +410,7 @@ source : https://www.youtube.com/redirect?event=comments&redir_token=QUFFLUhqbHB
   transition: 0.15s ease;
   cursor: pointer;
 }
+
 .control-btn:active {
   translate: 0 0.225em;
   box-shadow: inset 0 0.03em 0 0 #f4f4f4, 0 0.03em 0 0 #efefef,
@@ -403,8 +424,63 @@ source : https://www.youtube.com/redirect?event=comments&redir_token=QUFFLUhqbHB
 } */
 
 .control-btn:disabled {
-  opacity: 0.5;
+  display: none;
   cursor: not-allowed;
+}
+
+.sticky-btn-custom {
+  position: fixed;
+  bottom: 200px;
+  left: 100pc;
+  z-index: 1000;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
+}
+
+/* From Uiverse.io by vinodjangid07 */
+/* https://uiverse.io/vinodjangid07/quick-moth-22 */
+#checkbox {
+  display: none;
+}
+/* From Uiverse.io by vinodjangid07 */ 
+#checkbox {
+  display: none;
+}
+
+.switch {
+  position: fixed;
+  top: 25px;
+  right: 100px;
+  z-index: 1000;
+  width: 50px;
+  height: 50px;
+  background-color: rgb(99, 99, 99);
+  border-radius: 50%;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border: 2px solid rgb(126, 126, 126);
+  box-shadow: 0px 0px 3px rgb(2, 2, 2) inset;
+}
+.switch svg {
+  width: 1em;
+}
+.switch svg path {
+  fill: rgb(48, 48, 48);
+}
+#checkbox:checked + .switch {
+  box-shadow: 0px 0px 1px rgb(151, 243, 255) inset,
+    0px 0px 2px rgb(151, 243, 255) inset, 0px 0px 10px rgb(151, 243, 255) inset,
+    0px 0px 40px rgb(151, 243, 255), 0px 0px 100px rgb(151, 243, 255),
+    0px 0px 5px rgb(151, 243, 255);
+  border: 2px solid rgb(255, 255, 255);
+  background-color: rgb(146, 180, 184);
+}
+#checkbox:checked + .switch svg {
+  filter: drop-shadow(0px 0px 5px rgb(151, 243, 255));
+}
+#checkbox:checked + .switch svg path {
+  fill: rgb(255, 255, 255);
 }
 
 /* .instructions {
