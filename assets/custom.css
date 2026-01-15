@@ -1,36 +1,19 @@
 * {
-  padding: 0;
   margin: 0;
+  padding: 0;
   box-sizing: border-box;
-  -webkit-user-select: none;
-  -moz-user-select: none;
-  -ms-user-select: none;
-  user-select: none;
-  -webkit-tap-highlight-color: transparent;
 }
 
-body {
-  font-family: "Sour Gummy", sans-serif !important;
-  font-optical-sizing: auto;
-  /* font-weight: 400; */
-  font-style: normal;
-  /* font-variation-settings:
-        "wdth" 100; */
+/* bg pattern fix */
+body.bg-pattern {
+  font-family: "Quicksand", sans-serif;
+  height: 100vh;
   overflow: hidden;
-  touch-action: pan-y;
-}
-
-/* BACKGROUND PTRN  */
-/* src : patterncraft.fun Diagonal Fade Center Grid */
-.bg-pattern {
-  min-height: 100vh;
-  width: 100%;
-  background-color: #ffff;
-  /* background-color: #000; */
+  background-color: #F5F5F0;
   position: relative;
 }
 
-.bg-pattern::before {
+body.bg-pattern::before {
   content: "";
   position: absolute;
   inset: 0;
@@ -42,3 +25,189 @@ body {
   -webkit-mask-image: radial-gradient(ellipse 60% 60% at 50% 50%, #000 30%, transparent 70%);
   mask-image: radial-gradient(ellipse 60% 60% at 50% 50%, #000 30%, transparent 70%);
 }
+
+.app {
+  display: grid;
+  grid-template-columns: 1fr 1.1fr;
+  height: 100vh;
+}
+
+.left {
+  position: relative;
+  overflow: hidden;
+}
+
+.character {
+  position: absolute;
+  left: -50%;
+  top: 10%;
+  scale: 1.3;
+  width: 650px;
+  transition: left .9s cubic-bezier(.22, .61, .36, 1);
+}
+
+.app.explore .character {
+  left: 5%;
+}
+
+.right {
+  position: relative;
+  padding: 80px;
+  display: flex;
+  align-items: center;
+}
+
+.intro {
+  max-width: 420px;
+  transition: opacity .4s ease, transform .4s ease;
+}
+
+.app.explore .intro {
+  opacity: 0;
+  transform: translateY(20px);
+  pointer-events: none;
+}
+
+.intro h1 {
+  font-size: 50px;
+}
+
+.intro p {
+  margin: 18px 0 32px;
+  font-size: 18px;
+  line-height: 1.6;
+  font-weight: 500;
+  color: #555555;
+}
+
+/* style carousel */
+.carousel {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity .4s ease;
+}
+
+.app.explore .carousel {
+  opacity: 1;
+  pointer-events: auto;
+}
+
+.stack {
+  width: min(550px, 80%);
+  aspect-ratio: 1 / 1;
+  position: relative;
+}
+
+.card {
+  position: absolute;
+  inset: 0;
+  background: white;
+  border-radius: 10px;
+  padding: 26px;
+  border: 2px solid #758A93;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  box-shadow: rgba(0, 0, 0, .2) 0 3px 8px;
+  transition:
+    transform .7s cubic-bezier(.22, .61, .36, 1),
+    opacity .18s ease-out;
+}
+
+.card[data-pos="0"] {
+  z-index: 5;
+  transform: translateY(0);
+  opacity: 1;
+}
+
+.card[data-pos="1"] {
+  z-index: 4;
+  transform: translateY(-12px);
+  opacity: 0.9;
+}
+
+.card[data-pos="2"] {
+  z-index: 3;
+  transform: translateY(-24px);
+  opacity: 0.75;
+}
+
+.card[data-pos]:not([data-pos="0"]):not([data-pos="1"]):not([data-pos="2"]) {
+  opacity: 0;
+  transform: translateY(-36px);
+  pointer-events: none;
+}
+
+.card.exit {
+  transform: translateY(24px);
+  opacity: 0;
+}
+
+.card button {
+  align-self: flex-end;
+  padding: 10px 22px;
+  border-radius: 14px;
+  border: 3px solid #F39F9F;
+  background: none;
+  color: #B95E82;
+  cursor: pointer;
+}
+
+/* From Uiverse.io by alexmaracinaru */
+.cta {
+  border: none;
+  background: none;
+  cursor: pointer;
+}
+
+.cta span {
+  color: #E23E57;
+  padding-bottom: 7px;
+  letter-spacing: 4px;
+  font-size: 18px;
+  padding-right: 15px;
+  text-transform: uppercase;
+}
+
+.cta svg {
+  transform: translateX(-8px);
+  transition: all 0.3s ease;
+}
+
+.cta:hover svg {
+  transform: translateX(0);
+}
+
+.cta:active svg {
+  transform: scale(0.9);
+}
+
+.hover-underline-animation {
+  position: relative;
+  color: #E23E57;
+  padding-bottom: 20px;
+}
+
+.hover-underline-animation:after {
+  content: "";
+  position: absolute;
+  width: 100%;
+  transform: scaleX(0);
+  height: 2px;
+  bottom: 0;
+  left: 0;
+  background-color: #FFA239;
+  transform-origin: bottom right;
+  transition: transform 0.25s ease-out;
+}
+
+.cta:hover .hover-underline-animation:after {
+  transform: scaleX(1);
+  transform-origin: bottom left;
+}
+

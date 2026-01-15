@@ -6,32 +6,103 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Fira | Personal Website</title>
     <link rel="icon" type="image/png" href="./assets/img/head_icon.png" />
-
-    <!-- daisyui -->
-    <!-- <script src="https://cdn.tailwindcss.com?plugins=forms,typography"></script>
-    <link href="https://cdn.jsdelivr.net/npm/daisyui@4.12.0/dist/full.min.css" rel="stylesheet"> -->
-    <link rel="stylesheet" href="./assets/icons/remixicons/remixicon.css"> <!-- remix icons -->
-    <link rel="stylesheet" type="text/css" href="./assets/custom.css"> <!-- custom styles -->
+    <link rel="stylesheet" href="./assets/icons/remixicons/remixicon.css">
 
     <!-- bootstrap 5.2 -->
-    <link rel="stylesheet" type="text/css" href="./assets/bootstrap/css/bootstrap.min.css">
     <link rel="stylesheet" type="text/css" href="./assets/bootstrap/css/bootstrap.css">
     <script src="./assets/bootstrap/js/bootstrap.js"></script>
-    <script src="./assets/bootstrap/js/bootstrap.min.js"></script>
 
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/lipis/flag-icons@7.3.2/css/flag-icons.min.css" />
-
+    <!-- custom -->
+    <link rel="stylesheet" type="text/css" href="./assets/custom.css">
     <!-- google fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Sour+Gummy:ital,wght@0,100..900;1,100..900&display=swap"
         rel="stylesheet">
-    <link href="https://fonts.googleapis.com/css2?family=Reenie+Beanie&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Quicksand:wght@300..700&display=swap" rel="stylesheet">
 </head>
 
-<body class="bg-pattern justify-content-center align-items-center">
+<body class="bg-pattern">
+    <div class="app" id="app">
 
-    
+        <div class="left">
+            <img src="./assets/img/dummy_poses/dummy-1.png" class="character">
+        </div>
+
+        <div class="right">
+            <div class="intro">
+                <h1>Hello, I'm Fira</h1>
+                <p>
+                    I'm a website developer and digital illustrator.
+                    I love mixing logic, design, and storytelling.
+                </p>
+                <button class="cta" onclick="enter_explore()"> <b><span class="hover-underline-animation"> MORE ABOUT ME
+                        </span></b> <svg id="arrow-horizontal" xmlns="http://www.w3.org/2000/svg" width="30" height="10"
+                        viewBox="0 0 46 16">
+                        <path id="Path_10" data-name="Path 10"
+                            d="M8,0,6.545,1.455l5.506,5.506H-30V9.039H12.052L6.545,14.545,8,16l8-8Z"
+                            transform="translate(30)"></path>
+                    </svg>
+                </button> <!-- From Uiverse.io by alexmaracinaru -->
+            </div>
+
+            <div class="carousel">
+                <div class="stack">
+
+                    <div class="card" data-pos="0">
+                        <h2>About Me</h2>
+                        <p>Hello, I'm Shafira Hasna Fauzi. an Informatics Engineering student at Semarang State
+                            Polytechnic (POLINES). I have strong interest in full-stack web development and a passion
+                            for creating attractive UI designs. </p>
+                        <p>I believe good technology should inspire and delight users. By blending code logic with with
+                            my background in digital illustration, I aim to build digital experiences that are not only
+                            functional but also visually enganging. </p>
+                        <p>I'm always open to learning new things and discussing technology, design, and illustration.
+                        </p>
+                        <button onclick="next_card()">Education</button>
+                    </div>
+
+                    <div class="card" data-pos="1">
+                        <h2>My Learning Journey</h2>
+                        <div class="timeline">
+                            
+                        </div>
+                        <button onclick="next_card()">Internships</button>
+                    </div>
+
+                    <div class="card" data-pos="2">
+                        <h2>Internship Stories</h2>
+                        <p>Body text</p>
+                        <button onclick="next_card()">Next</button>
+                    </div>
+
+                    <div class="card" data-pos="3">
+                        <h2>Skills</h2>
+                        <p>Body text</p>
+                        <button onclick="next_card()">Next</button>
+                    </div>
+
+                    <div class="card" data-pos="4">
+                        <h2>Achievements</h2>
+                        <p>Body text</p>
+                        <button onclick="next_card()">Next</button>
+                    </div>
+
+                    <div class="card" data-pos="5">
+                        <h2>My Portofolios</h2>
+                        <p>Body text</p>
+                        <button onclick="next_card()">Next</button>
+                    </div>
+
+                    <div class="card" data-pos="6">
+                        <h2>Let's connect!</h2>
+                        <p>Body text</p>
+                        <button onclick="next_card()">Next</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
 
     <script src="./assets/script.js"></script>
 </body>

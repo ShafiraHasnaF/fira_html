@@ -1,3 +1,29 @@
+const app = document.getElementById('app');
+const cards = [...document.querySelectorAll('.card')];
+let anim = false;
+
+cards.forEach((c, i) => c.dataset.pos = i);
+
+function enter_explore() {
+    app.classList.add('explore');
+}
+
+function next_card() {
+    if (anim) return;
+    anim = true;
+
+    const active = cards.find(c => c.dataset.pos == 0);
+    active.classList.add('exit');
+
+    setTimeout(() => {
+        cards.forEach(card => {
+            let p = parseInt(card.dataset.pos);
+            card.dataset.pos = (p - 1 + cards.length) % cards.length;
+            card.classList.remove('exit');
+        });
+        anim = false;
+    }, 180);
+}
 // const book = document.getElementById('book');
 // const bookContainer = document.getElementById('bookContainer');
 // const bookShadow = document.getElementById('bookShadow');
