@@ -1,3 +1,14 @@
+document.querySelectorAll('.card[data-partial]').forEach(card => {
+    const file = card.dataset.partial;
+    fetch(`./sections/${file}`)
+        .then(res => res.text())
+        .then(html => card.innerHTML = html)
+        .catch(err => {
+            card.innerHTML = '<p>Error loading content</p>';
+            console.error(err);
+        });
+});
+
 const app = document.getElementById('app');
 const cards = [...document.querySelectorAll('.card')];
 let anim = false;

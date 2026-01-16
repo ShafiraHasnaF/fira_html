@@ -33,7 +33,7 @@
             <div class="intro">
                 <h1>Hello, I'm Fira</h1>
                 <p>
-                    I'm a website developer and digital illustrator.
+                    I'm a website developer and digital illustrator.<br>
                     I love mixing logic, design, and storytelling.
                 </p>
                 <button class="cta" onclick="enter_explore()"> <b><span class="hover-underline-animation"> MORE ABOUT ME
@@ -48,135 +48,13 @@
 
             <div class="carousel">
                 <div class="stack">
-
-                    <div class="card" data-pos="0">
-                        <h2>About Me</h2>
-                        <p>Hello, I'm Shafira Hasna Fauzi. An Informatics Engineering student at Semarang State
-                            Polytechnic (POLINES). I have strong interest in full-stack web development and a passion
-                            for creating attractive UI designs. </p>
-                        <p>I believe good technology should inspire and delight users. By blending code logic with with
-                            my background in digital illustration, I aim to build digital experiences that are not only
-                            functional but also visually enganging. </p>
-                        <p>I'm always open to learning new things and discussing technology, design, and illustration.
-                        </p>
-                        <button onclick="next_card()">Education</button>
-                    </div>
-
-                    <div class="card timeline-card" data-pos="1">
-                        <h2 class="mb-4">My Learning Journey</h2>
-                        <div class="timeline-scroll">
-                            <div class="timeline_component">
-
-                                <div class="timeline_item">
-                                    <div class="timeline_left">
-                                        <div class="timeline_date-text">2013 – 2019</div>
-                                    </div>
-                                    <div class="timeline_centre">
-                                        <div class="timeline_circle"></div>
-                                    </div>
-                                    <div class="timeline_right">
-                                        <h6>SD Negeri Pendrikan Lor 2 Semarang</h6>
-                                        <p>
-                                            I completed my elementary education at SD Negeri Pendrikan Lor 2 Semarang. I
-                                            consistently ranked first for six consecutive years. <br><br>
-                                            During this time, I actively participated in many art competitions,
-                                            especially painting, such as FLS2N and other art-related events.
-                                        </p>
-                                    </div>
-                                </div>
-
-                                <div class="timeline_item">
-                                    <div class="timeline_left">
-                                        <div class="timeline_date-text">2019 – 2022</div>
-                                    </div>
-                                    <div class="timeline_centre">
-                                        <div class="timeline_circle"></div>
-                                    </div>
-                                    <div class="timeline_right">
-                                        <h6>SMP Negeri 23 Semarang</h6>
-                                        <p>
-                                            I continued my education at SMP Negeri 23 Semarang. Here, I began to explore
-                                            the world of programming through extracurricular activities in robotics,
-                                            which sparked my interest in this field. <br><br>
-                                            However, due to the COVID-19 pandemic, I had to adapt to online learning,
-                                            which presented its own set of challenges.
-                                        </p>
-                                    </div>
-                                </div>
-
-                                <div class="timeline_item">
-                                    <div class="timeline_left">
-                                        <div class="timeline_date-text">2022 – 2025</div>
-                                    </div>
-                                    <div class="timeline_centre">
-                                        <div class="timeline_circle"></div>
-                                    </div>
-                                    <div class="timeline_right">
-                                        <h6>SMK Negeri 3 Kendal</h6>
-                                        <p>
-                                            I studied at SMK Negeri 3 Kendal, majoring in Software Engineering (Rekayasa
-                                            Perangkat Lunak), I chose this major because my growing curiosity in
-                                            programming.<br><br>
-                                            During this period, I participated in competitions such as LKS and completed
-                                            two internship programs.
-                                        </p>
-                                    </div>
-                                </div>
-
-                                <div class="timeline_item">
-                                    <div class="timeline_left">
-                                        <div class="timeline_date-text">2025 – Now</div>
-                                    </div>
-                                    <div class="timeline_centre">
-                                        <div class="timeline_circle"></div>
-                                    </div>
-                                    <div class="timeline_right">
-                                        <h6>Politeknik Negeri Semarang</h6>
-                                        <p>
-                                            I'm currently pursuing my studies at Politeknik Negeri Semarang, majoring in
-                                            Informatics Engineering.<br><br>
-                                            My main goal during these three years is to actively participate in
-                                            competitions and further develop both of my soft and hard skills.
-                                        </p>
-                                    </div>
-                                </div>
-
-                            </div>
-                        </div>
-
-                        <button class="mt-4" onclick="next_card()">Internships</button>
-                    </div>
-
-
-                    <div class="card" data-pos="2">
-                        <h2>Internship Stories</h2>
-                        <p>Body text</p>
-                        <button onclick="next_card()">Next</button>
-                    </div>
-
-                    <div class="card" data-pos="3">
-                        <h2>Skills</h2>
-                        <p>Body text</p>
-                        <button onclick="next_card()">Next</button>
-                    </div>
-
-                    <div class="card" data-pos="4">
-                        <h2>Achievements</h2>
-                        <p>Body text</p>
-                        <button onclick="next_card()">Next</button>
-                    </div>
-
-                    <div class="card" data-pos="5">
-                        <h2>My Portofolios</h2>
-                        <p>Body text</p>
-                        <button onclick="next_card()">Next</button>
-                    </div>
-
-                    <div class="card" data-pos="6">
-                        <h2>Let's connect!</h2>
-                        <p>Body text</p>
-                        <button onclick="next_card()">Next</button>
-                    </div>
+                    <div class="card" data-pos="0" data-partial="about.html"></div>
+                    <div class="card timeline-card" data-pos="1" data-partial="edu.html"></div>
+                    <div class="card" data-pos="2" data-partial="internship.html"></div>
+                    <div class="card" data-pos="3" data-partial="skills.html"></div>
+                    <div class="card" data-pos="4" data-partial="achievement.html"></div>
+                    <div class="card" data-pos="5" data-partial="porto.html"></div>
+                    <div class="card" data-pos="6" data-partial="contact.html"></div>
                 </div>
             </div>
         </div>
