@@ -84,7 +84,6 @@ function intern_js() {
             const dx = Math.abs(targetX - posisi_x);
             const dy = Math.abs(targetY - posisi_y);
             if (dx < stop_semarang && dy < stop_semarang) {
-                console.log('posisi awal semarang');
                 if (popover_aktif && pin_aktif !== pin) {
                     popover_aktif.hide();
                 }
@@ -99,15 +98,12 @@ function intern_js() {
                 popover_aktif = null;
             }
             pin_aktif = pin;
-            console.log(pin);
 
-            //flip sesuai arah
+            // flip karakter sesuai arah jalan
             if (targetX > posisi_x) {
                 me.classList.add('flip');
-                console.log('flip kiri jalan');
             } else {
                 me.classList.remove('flip');
-                console.log('flp kanan jalan');
             }
 
             me.classList.add('walk');
@@ -127,15 +123,44 @@ function intern_js() {
         });
     });
 
-    //popover hilang kalau klik selain pin
+    // popover hilang klo klik selain pin / popover
     document.addEventListener('click', (e) => {
         const isPin = e.target.closest('.pin');
         const isPopover = e.target.closest('.popover');
+        const isPopoverLink = e.target.closest('.popover-link');
 
-        if (!isPin && !isPopover && popover_aktif) {
+        //popover ttp terbuka kalau klik link sertif
+        if (!isPin && !isPopover && !isPopoverLink && popover_aktif) {
             popover_aktif.hide();
             popover_aktif = null;
             pin_aktif = null;
         }
     });
+
+    // buka modal sertif STRESS GWA SAGDSGHJSDSK
+    document.addEventListener('click', (e) => {
+        const link = e.target.closest('.popover-link');
+        if (!link) return;
+
+        e.preventDefault();
+        e.stopPropagation();
+
+        if (!pin_aktif) {
+            console.error('error definisi pin aktif');
+            return;
+        }
+        const cert = pin_aktif.dataset.cert;
+        if (!cert) {
+            console.error('ga ada definisi data-cert');
+            return;
+        }
+        const img = document.getElementById('certImg');
+        img.src = cert;
+
+        const modal_cert = document.getElementById('certModal');
+        const modal = bootstrap.Modal.getOrCreateInstance(modal_cert);
+        modal.show();
+    });
+
 }
+

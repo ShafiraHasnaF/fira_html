@@ -295,18 +295,51 @@ body.bg-pattern::before {
 }
 
 .intern-popover {
-  border: none !important ;
+  border: 2px solid #fff;
   max-width: 300px;
-  box-shadow: rgba(50, 50, 93, 0.25) 0px 2px 5px -1px, rgba(0, 0, 0, 0.3) 0px 1px 3px -1px;
+  box-shadow: rgba(0, 0, 0, 0.30) 0px 2px 4px;
+}
+
+.intern-popover .popover-header {
+  font-family: "Quicksand", sans-serif;
+  text-align: center;
+  font-weight: 800;
+  font-size: 14px;
+  /* border-bottom: none; */
 }
 
 .intern-popover .popover-body {
+  font-family: "Quicksand", sans-serif;
   max-height: 140px;
   overflow-y: auto;
   font-size: 13px;
   line-height: 1.5;
-  background-color: rgb(250, 248, 243);
   border-radius: 0 0 5px 5px;
+}
+
+.intern-popover .popover-header, .intern-popover .popover-body{
+  background-color: rgb(250, 248, 243);
+}
+
+.intern-popover .popover-link {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 6px;
+  margin-top: 10px;
+  padding-top: 8px;
+  font-size: 12px;
+  font-weight: 600;
+  color: #e85b8e;
+  text-decoration: none;
+  border-top: 1px dashed #ddd;
+}
+
+.intern-popover .popover-link i {
+  font-size: 16px;
+}
+.intern-popover .popover-link:hover {
+  text-decoration: underline;
 }
 
 /* contact style */
