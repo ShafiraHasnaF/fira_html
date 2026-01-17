@@ -99,11 +99,13 @@ function intern_js() {
             }
             pin_aktif = pin;
 
-            // flip karakter sesuai arah jalan
+            // flip fira nya
             if (targetX > posisi_x) {
                 me.classList.add('flip');
+                console.log('anjay flip kanan');
             } else {
                 me.classList.remove('flip');
+                console.log('anjay flip kiri');
             }
 
             me.classList.add('walk');
@@ -129,7 +131,7 @@ function intern_js() {
         const isPopover = e.target.closest('.popover');
         const isPopoverLink = e.target.closest('.popover-link');
 
-        //popover ttp terbuka kalau klik link sertif
+        //popover ttp terbuka klo klik link sertif
         if (!isPin && !isPopover && !isPopoverLink && popover_aktif) {
             popover_aktif.hide();
             popover_aktif = null;
