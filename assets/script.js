@@ -1,14 +1,25 @@
+// inisialisasi per section
 document.querySelectorAll('.card[data-partial]').forEach(card => {
     const file = card.dataset.partial;
+
     fetch(`./sections/${file}`)
         .then(res => res.text())
-        .then(html => card.innerHTML = html)
+        .then(html => {
+            card.innerHTML = html;
+
+            if (file === 'intern.html') {
+                requestAnimationFrame(() => {
+                    intern_js();
+                });
+            }
+        })
         .catch(err => {
-            card.innerHTML = '<p>Error loading content</p>';
+            card.innerHTML = '<p>failed to load...</p>';
             console.error(err);
         });
 });
 
+// paper stack js
 const app = document.getElementById('app');
 const cards = [...document.querySelectorAll('.card')];
 let anim = false;
@@ -35,138 +46,96 @@ function next_card() {
         anim = false;
     }, 180);
 }
-// const book = document.getElementById('book');
-// const bookContainer = document.getElementById('bookContainer');
-// const bookShadow = document.getElementById('bookShadow');
-// const prevBtn = document.getElementById('prevBtn');
-// const nextBtn = document.getElementById('nextBtn');
-// // const pageCounter = document.getElementById('pageCounter');
-// // const navStatus = document.getElementById('navStatus');
 
-// let currentPage = 1;
-// const totalPages = 6;
+//internship section js
+function intern_js() {
+    const me = document.querySelector('.me');
+    if (!me) return;
 
-// function updateBook() {
-//     book.className = 'book';
+    const pins = document.querySelectorAll('.pin');
+    if (!pins.length) return;
 
-//     if (currentPage === 0) book.classList.add('page0-open');
-//     else if (currentPage === 1) book.classList.add('page1-open');
-//     else if (currentPage === 2) book.classList.add('page2-open');
-//     else if (currentPage === 3) book.classList.add('page3-open');
-//     else if (currentPage === 4) book.classList.add('page4-open');
-//     else if (currentPage === 5) book.classList.add('page5-open');
-//     else if (currentPage === 6) book.classList.add('page6-open');
+    let walking = false;
+    let pin_aktif = null;
+    let popover_aktif = null;
 
-//     // const pageNames = ['Cover', 'About Me', 'Skills', 'Portfolio', 'Experience', 'Contact & Fun Facts', 'The End'];
-//     // pageCounter.textContent = pageNames[currentPage];
-//     // updateNavStatus();
-//     updateShadow();
-//     prevBtn.disabled = currentPage === 0;
-//     nextBtn.disabled = currentPage === totalPages - 1;
-// }
+    let posisi_x = me.offsetLeft;
+    let posisi_y = me.offsetTop;
+    const stop_semarang = 20;
 
-// // function updateNavStatus() {
-// //     if (currentPage === 0) {
-// //         navStatus.textContent = "swipe right / next";
-// //     } else if (currentPage === totalPages - 1) {
-// //         navStatus.textContent = "end, swipe left or previous";
-// //     } else {
-// //         navStatus.textContent = "swipe or use the buttons to navigate";
-// //     }
-// // }
-// function updateShadow() {
-//     const shadowIntensity = 0.2 - (currentPage * 0.02);
-//     const shadowBlur = 10 + (currentPage * 2);
-//     bookShadow.style.background = `rgba(0, 0, 0, ${shadowIntensity})`;
-//     bookShadow.style.filter = `blur(${shadowBlur}px)`;
-// }
-// function nextPage() {
-//     if (currentPage < totalPages - 1) {
-//         currentPage++;
-//         updateBook();
-//     }
-// }
-// function prevPage() {
-//     if (currentPage > 0) {
-//         currentPage--;
-//         updateBook();
-//     }
-// }
+    pins.forEach(pin => {
+        const popover = new bootstrap.Popover(pin, {
+            trigger: 'manual',
+            placement: pin.dataset.placement || 'top',
+            title: pin.dataset.title,
+            content: pin.dataset.content,
+            html: true,
+            container: 'body',
+            customClass: 'intern-popover'
+        });
 
-// prevBtn.addEventListener('click', prevPage);
-// nextBtn.addEventListener('click', nextPage);
-// let startX = 0;
-// let endX = 0;
-// let isSwiping = false;
+        pin.addEventListener('click', (e) => {
+            e.stopPropagation();
+            if (walking) return;
 
-// bookContainer.addEventListener('touchstart', (e) => {
-//     startX = e.touches[0].clientX;
-//     isSwiping = true;
-// });
+            const targetX = pin.offsetLeft + 15;
+            const targetY = pin.offsetTop - 10;
 
-// bookContainer.addEventListener('touchmove', (e) => {
-//     if (!isSwiping) return;
-//     e.preventDefault();
-// });
+            const dx = Math.abs(targetX - posisi_x);
+            const dy = Math.abs(targetY - posisi_y);
+            if (dx < stop_semarang && dy < stop_semarang) {
+                console.log('posisi awal semarang');
+                if (popover_aktif && pin_aktif !== pin) {
+                    popover_aktif.hide();
+                }
+                popover.show();
+                pin_aktif = pin;
+                popover_aktif = popover;
+                return;
+            }
+            walking = true;
+            if (popover_aktif) {
+                popover_aktif.hide();
+                popover_aktif = null;
+            }
+            pin_aktif = pin;
+            console.log(pin);
 
-// bookContainer.addEventListener('touchend', (e) => {
-//     if (!isSwiping) return;
-//     endX = e.changedTouches[0].clientX;
-//     handleSwipe();
-//     isSwiping = false;
-// });
+            //flip sesuai arah
+            if (targetX > posisi_x) {
+                me.classList.add('flip');
+                console.log('flip kiri jalan');
+            } else {
+                me.classList.remove('flip');
+                console.log('flp kanan jalan');
+            }
 
-// bookContainer.addEventListener('mousedown', (e) => {
-//     startX = e.clientX;
-//     isSwiping = true;
-//     document.addEventListener('mousemove', onMouseMove);
-//     document.addEventListener('mouseup', onMouseUp);
-// });
+            me.classList.add('walk');
+            me.style.transition = 'left 3.5s linear, top 2s linear';
+            me.style.left = targetX + 'px';
+            me.style.top = targetY + 'px';
 
-// function onMouseMove(e) {
-//     if (!isSwiping) return;
-//     e.preventDefault();
-// }
+            setTimeout(() => {
+                me.classList.remove('walk');
+                posisi_x = targetX;
+                posisi_y = targetY;
+                popover.show();
+                popover_aktif = popover;
 
-// function onMouseUp(e) {
-//     if (!isSwiping) return;
-//     endX = e.clientX;
-//     handleSwipe();
-//     isSwiping = false;
-//     document.removeEventListener('mousemove', onMouseMove);
-//     document.removeEventListener('mouseup', onMouseUp);
-// }
+                walking = false;
+            }, 3500);
+        });
+    });
 
-// function handleSwipe() {
-//     const diff = startX - endX;
-//     const minSwipeDistance = 50;
-//     if (currentPage === 0 && diff < 0) return;
-//     if (currentPage === totalPages - 1 && diff > 0) return;
+    //popover hilang kalau klik selain pin
+    document.addEventListener('click', (e) => {
+        const isPin = e.target.closest('.pin');
+        const isPopover = e.target.closest('.popover');
 
-//     if (Math.abs(diff) > minSwipeDistance) {
-//         if (diff > 0) {
-//             nextPage();
-//         } else {
-//             prevPage();
-//         }
-//     }
-// }
-// const pages = document.querySelectorAll('.page');
-// pages.forEach((page, index) => {
-//     page.addEventListener('click', (e) => {
-//         if (e.target.tagName === 'BUTTON') return;
-//         if (currentPage === 0) {
-//             nextPage();
-//             return;
-//         }
-//         if (currentPage === totalPages - 1) {
-//             prevPage();
-//             return;
-//         }
-//         if (index <= currentPage && index < totalPages - 1) {
-//             nextPage();
-//         }
-//     });
-// });
-
-// updateBook();
+        if (!isPin && !isPopover && popover_aktif) {
+            popover_aktif.hide();
+            popover_aktif = null;
+            pin_aktif = null;
+        }
+    });
+}
