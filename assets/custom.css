@@ -134,9 +134,26 @@ body.bg-pattern::before {
 }
 
 .about-me-container {
+  text-align: justify;
   height: max-content;
   overflow-y: auto;
   padding-right: 6px;
+}
+
+.about-me-container .big{
+  font-family: "Schoolbell", cursive !important;
+  font-style: normal;
+  font-size: 26px;
+  font-weight: 500;
+}
+.about-me-container .medium{
+  font-size: 18px;
+  font-weight: 600;
+}
+
+.about-me-container .mid{
+  /* font-size: 18px; */
+  font-weight: 600;
 }
 
 .card {
@@ -317,6 +334,13 @@ body.bg-pattern::before {
   font-weight: 800;
   font-size: 14px;
   /* border-bottom: none; */
+}
+.intern-popover .popover-date {
+  display: block;
+  margin-top: 2px;
+  font-size: 10px;
+  font-weight: 500;
+  color: #4b4b4b;
 }
 
 .intern-popover .popover-body {
