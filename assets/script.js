@@ -51,6 +51,8 @@ function next_card() {
 function intern_js() {
     const me = document.querySelector('.me');
     if (!me) return;
+    const map = document.querySelector('.intern-map');
+    if (!map) return;
 
     const pins = document.querySelectorAll('.pin');
     if (!pins.length) return;
@@ -78,11 +80,28 @@ function intern_js() {
             e.stopPropagation();
             if (walking) return;
 
-            const targetX = pin.offsetLeft + 15;
-            const targetY = pin.offsetTop - 10;
+            const mapRect = map.getBoundingClientRect();
+            const pinRect = pin.getBoundingClientRect();
 
+            let targetX = pinRect.left - mapRect.left + 15;
+            let targetY = pinRect.top - mapRect.top - 10;
+
+            const mapWidth = map.clientWidth;
+            const mapHeight = map.clientHeight;
+
+            const meWidth = me.offsetWidth;
+            const meHeight = me.offsetHeight;
+
+            targetX = Math.max(0, Math.min(targetX, mapWidth - meWidth));
+            const batas_top = 5; const batas_btm = 6;  //biar ga keluar pulau jawa at least
+            targetY = Math.max(
+                batas_top,
+                Math.min(targetY, mapHeight - meHeight - batas_btm)
+            );
             const dx = Math.abs(targetX - posisi_x);
             const dy = Math.abs(targetY - posisi_y);
+
+            //stop jalan klo dh nyampe
             if (dx < stop_semarang && dy < stop_semarang) {
                 if (popover_aktif && pin_aktif !== pin) {
                     popover_aktif.hide();
@@ -163,6 +182,4 @@ function intern_js() {
         const modal = bootstrap.Modal.getOrCreateInstance(modal_cert);
         modal.show();
     });
-
 }
-
