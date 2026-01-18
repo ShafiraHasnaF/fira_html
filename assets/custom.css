@@ -237,7 +237,8 @@ body.bg-pattern::before {
 
 .card .internship-scroll,
 .card .contact-scroll,
-.card .skills-scroll {
+.card .skills-scroll, 
+.card .achievs-scroll {
   flex: 1;
   overflow-y: auto;
   overflow-x: hidden;
@@ -732,4 +733,15 @@ body.bg-pattern::before {
   display: inline-block;
   border-bottom: 3px solid #F4A261;
   padding-bottom: 5px;
+}
+
+/* achievemetns style */
+.achievement-grid .achievement-card img{
+  width: 400px;
+  margin: 20px;
+  box-shadow: rgba(0, 0, 0, 0.4) 0px 2px 4px, rgba(0, 0, 0, 0.3) 0px 7px 13px -3px, rgba(0, 0, 0, 0.2) 0px -3px 0px inset;
+}
+
+.achievement-card{
+  justify-content: center;
 }

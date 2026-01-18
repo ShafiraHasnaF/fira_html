@@ -12,6 +12,23 @@ document.querySelectorAll('.card[data-partial]').forEach(card => {
                     intern_js();
                 });
             }
+            if (file === 'achievement.html') {
+                requestAnimationFrame(() => {
+                    AOS.init({
+                        duration: 100,
+                        once: true
+                    });
+                    VanillaTilt.init(
+                        document.querySelectorAll('.achievement-img'),
+                        {
+                            max: 6,
+                            speed: 400,
+                            glare: false,
+                            scale: 1.02
+                        }
+                    );
+                });
+            }
         })
         .catch(err => {
             card.innerHTML = '<p>failed to load...</p>';
