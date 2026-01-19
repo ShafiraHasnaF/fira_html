@@ -14,19 +14,7 @@ document.querySelectorAll('.card[data-partial]').forEach(card => {
             }
             if (file === 'achievement.html') {
                 requestAnimationFrame(() => {
-                    AOS.init({
-                        duration: 100,
-                        once: true
-                    });
-                    VanillaTilt.init(
-                        document.querySelectorAll('.achievement-img'),
-                        {
-                            max: 6,
-                            speed: 400,
-                            glare: false,
-                            scale: 1.02
-                        }
-                    );
+                    achievement_js();
                 });
             }
         })
@@ -199,4 +187,8 @@ function intern_js() {
         const modal = bootstrap.Modal.getOrCreateInstance(modal_cert);
         modal.show();
     });
+}
+
+function achievement_js() {
+    
 }

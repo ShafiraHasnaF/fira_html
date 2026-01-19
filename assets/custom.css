@@ -140,18 +140,19 @@ body.bg-pattern::before {
   padding-right: 6px;
 }
 
-.about-me-container .big{
+.about-me-container .big {
   font-family: "Schoolbell", cursive !important;
   font-style: normal;
   font-size: 26px;
   font-weight: 500;
 }
-.about-me-container .medium{
+
+.about-me-container .medium {
   font-size: 18px;
   font-weight: 600;
 }
 
-.about-me-container .mid{
+.about-me-container .mid {
   /* font-size: 18px; */
   font-weight: 600;
 }
@@ -237,8 +238,7 @@ body.bg-pattern::before {
 
 .card .internship-scroll,
 .card .contact-scroll,
-.card .skills-scroll, 
-.card .achievs-scroll {
+.card .skills-scroll{
   flex: 1;
   overflow-y: auto;
   overflow-x: hidden;
@@ -278,6 +278,7 @@ body.bg-pattern::before {
 }
 
 @keyframes bounce {
+
   0%,
   100% {
     transform: translateY(0);
@@ -336,6 +337,7 @@ body.bg-pattern::before {
   font-size: 14px;
   /* border-bottom: none; */
 }
+
 .intern-popover .popover-date {
   display: block;
   margin-top: 2px;
@@ -386,7 +388,7 @@ body.bg-pattern::before {
   margin: auto;
 }
 
-.cert-wrapper span{
+.cert-wrapper span {
   display: block;
   text-align: center;
   color: #fff;
@@ -736,12 +738,55 @@ body.bg-pattern::before {
 }
 
 /* achievemetns style */
-.achievement-grid .achievement-card img{
-  width: 400px;
-  margin: 20px;
-  box-shadow: rgba(0, 0, 0, 0.4) 0px 2px 4px, rgba(0, 0, 0, 0.3) 0px 7px 13px -3px, rgba(0, 0, 0, 0.2) 0px -3px 0px inset;
+.card .achievs-scroll {
+  flex: 1;
+  overflow-y: auto;
+  overflow-x: hidden;
+  padding-right: 6px;
 }
 
-.achievement-card{
-  justify-content: center;
+.achievement-area {
+  flex: 1;                  
+  display: flex;
+  justify-content: center;    
+  align-items: center;        
+  position: relative;
+}
+
+.achievement-board {
+  width: 90%;
+  max-width: 430px;
+  height: 200px;
+  z-index: 10;
+  background-color: #d1d5db;
+  border-radius: 10px;
+  border: 1px solid #555;
+}
+
+.achievement-area img{
+  position: absolute;
+  /* width: 100px; */
+  /* border-radius: 5px; */
+  z-index: 999;
+}
+
+.achievement-area .cert_ukk{
+  top: 30%;
+  left: 65%;
+  width: 100px;
+  rotate: calc(8deg);
+}
+
+.achievement-area .cert_bnsp{
+  top: 10%;
+  left: 15%;
+  width: 100px;
+  rotate: calc(8deg);
+}
+
+.achievement-area .cert_lks{
+  width: 100px;
+  /* top: 10%;
+  left: 15%; */
+  /* rotate: calc(deg); */
 }
